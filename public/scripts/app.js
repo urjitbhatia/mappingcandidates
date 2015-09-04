@@ -1,4 +1,4 @@
-var app = angular.module('mappingcandidates', ['ngRoute', 'ngResource'])
+var app = angular.module('mappingcandidatesApp', ['ngRoute', 'ngResource'])
 
 // app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
 
@@ -9,11 +9,39 @@ var app = angular.module('mappingcandidates', ['ngRoute', 'ngResource'])
 // }]);
 
 
-app.controller('MainCtrl', ['$scope', function ($scope) {
-  
+app.service('Candidate', ['$resource', function ($resource) {
+  return $resource('/candidate/:id', {id: '@_id'}, {
+    update: {
+      method: 'PUT'
+    }
+  });
+}]);
+
+
+
+app.controller('MainCtrl', ['$scope', 'Candidate', function ($scope, Candidate) {
   $scope.test = "hello world";
 
-  }])
+  $scope.allCandidates = Candidate.query();
+  $scope.candidate = {};
+
+    $scope.createCandidate = function() {
+      console.log(candidate);
+      Candidate.save($scope.candidate);
+      $scope.allCandidates.push($scope.candidate);
+    };
+}])
 
 
 ;
+
+
+
+
+
+
+
+
+
+
+

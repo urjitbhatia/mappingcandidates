@@ -5,6 +5,8 @@ var express = require('express'),
     app = express(),
     bodyParser = require('body-parser'),  // for data from the request body
     mongoose = require('mongoose');       // to interact with our db
+    Candidate = require('./models/candidate');
+    Event = require('./models/event');
 
 // connect to mongodb
 mongoose.connect(
@@ -17,16 +19,33 @@ mongoose.connect(
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
+// ------------------------------- //
+
+// CANDIDATE //
+
+// get all candidate information
+app.get('/candidate', function (req, res) {
+  Candidate.find({}, function (err, candidates) {
+    res.json(candidates);
+  });
+});
+
+// create new candidate
+app.post('/candidate', function (req, res) {
+  // create new candiate with data from the body of the request (`req.body`)
+  // body should contain the candidate text itself
+  var newCandidate = new Candidate(req.body);
+
+  // save new candidate
+  newCandidate.save(function (err, savedCandidate) {
+    res.json(savedCandidate);
+  });
+});
 
 
 
 
-
-
-
-
-
-
+// ------------------------------- //
 
 
 // set location for static files

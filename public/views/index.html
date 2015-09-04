@@ -1,4 +1,4 @@
-<html ng-app="mappingcandidates">
+<html ng-app="mappingcandidatesApp">
   <head>
     <title>presidental candidate mapping</title>
     <!-- latest compiled and minified bootstrap -->
@@ -13,10 +13,10 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-route.js"></script>
      <!-- angular resource -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-resource.min.js"></script>
+      <!-- jquery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
      <!-- bootstrap js -->
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <!-- jquery -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
     <!-- custom script -->
     <script type="text/javascript" src="scripts/app.js"></script> 
   
@@ -25,24 +25,54 @@
   <body ng-controller="MainCtrl">
 
   <!-- NAVBAR -->
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <!-- left side -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          </button>
-          <a class="navbar-brand" href="#">mapping candidates</a>
-        </div>
-        <!-- right side -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">about</a></li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
+    <div class="navbar">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <!-- left side -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            </button>
+            <a class="navbar-brand" href="#">mapping candidates</a>
+          </div>
+          <!-- right side -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#">about</a></li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+    </div>
 
 
+    <!-- CREATE CANDIDATE -->
+    <div class="col-md-12"><center>
+  
+      <h1>creating candidate</h1>
+      <hr>
+      
+      <div class="col-md-6">
+        <h2> new candidate </h2>
+
+          <form name="candidateForm" ng-submit="createCandidate()">
+            
+            <div class="form-group">
+              <input type="candidate" ng-model="candidate.name" class="form-control" placeholder="candidate name" required>
+            </div>
+            
+            <input type="submit" value="submit your candidate!" class="btn btn-default">
+          </form> 
+      
+      </div>
+
+      <div class="col-md-6">
+        <h2> all candidates </h2>
+          <div ng-repeat="candidate in allCandidates">
+            <p>{{candidate.name}}</p>
+          </div>
+      </div>
+
+   </center></div>
 
 
 
