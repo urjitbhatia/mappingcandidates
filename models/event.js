@@ -5,12 +5,14 @@ var mongoose = require('mongoose'),
 
 var EventSchema = new Schema({
   title: String,
-  time: Number, 
+  time: String, 
   location: String, 
-  state: String,
-  completed: Boolean
+  url: String
 });
 
 var Event = mongoose.model('Event', EventSchema);
 module.exports = Event;
+
+
+
 

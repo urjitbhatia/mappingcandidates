@@ -18,7 +18,6 @@ app.service('Candidate', ['$resource', function ($resource) {
 }]);
 
 
-
 app.controller('MainCtrl', ['$scope', 'Candidate', function ($scope, Candidate) {
   $scope.test = "hello world";
 
@@ -34,6 +33,7 @@ app.controller('MainCtrl', ['$scope', 'Candidate', function ($scope, Candidate) 
 
 
 ;
+
 
 
 

@@ -48,10 +48,10 @@
     <!-- CREATE CANDIDATE -->
     <div class="col-md-12"><center>
   
-      <h1>creating candidate</h1>
-      <hr>
+  <!--     <h1>creating candidate</h1>
+      <hr> -->
       
-      <div class="col-md-6">
+     <!--  <div class="col-md-6">
         <h2> new candidate </h2>
 
           <form name="candidateForm" ng-submit="createCandidate()">
@@ -63,12 +63,16 @@
             <input type="submit" value="submit your candidate!" class="btn btn-default">
           </form> 
       
-      </div>
+      </div> -->
 
       <div class="col-md-6">
         <h2> all candidates </h2>
           <div ng-repeat="candidate in allCandidates">
             <p>{{candidate.name}}</p>
+            <p>{{candidate.party}}</p>
+            <p>{{candidate.events.title}}</p>
+            <p>{{candidate.events.location}}</p>
+
           </div>
       </div>
 
