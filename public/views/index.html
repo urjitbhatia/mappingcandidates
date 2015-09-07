@@ -68,7 +68,7 @@
       
       </div> -->
 
-      <div class="col-md-6">
+      <div class="col-md-7">
         <h2> all candidates </h2>
           <div ng-repeat="candidate in allCandidates">
             <p>Name: {{candidate.name}}</p>
@@ -76,13 +76,14 @@
             <p>Events:</p>
             <div ng-repeat="event in candidate.events">
               <p>Event Title: {{event.title}}</p>
+              <p>Event Time: {{event.time}}</p>
               <p>Event Location: {{event.location}}</p>
             </div>
           </div>
       </div>
 
 
-      <div class="col-md-6" id="map">
+      <div class="col-md-5" id="map">
         <map />
       </div>  
 
