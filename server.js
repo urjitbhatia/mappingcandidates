@@ -49,7 +49,7 @@ app.get('/candidateCreate', function (req, res) {
   otherCandidateEvent.location = "Patiala";
 
   var candidate = new Candidate();
-  candidate.name = "Taranmol";
+  candidate.name = "Taranamol";
   candidate.party = "JakaraParty";
   candidate.events.push(candidateEvent);
   candidate.events.push(otherCandidateEvent);
