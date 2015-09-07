@@ -1,4 +1,4 @@
-var app = angular.module('mappingcandidatesApp', ['ngRoute', 'ngResource'])
+var app = angular.module('mappingcandidatesApp', ['ngRoute', 'ngResource', 'ngMap'])
 
 // app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
 
@@ -29,7 +29,15 @@ app.controller('MainCtrl', ['$scope', 'Candidate', function ($scope, Candidate) 
       Candidate.save($scope.candidate);
       $scope.allCandidates.push($scope.candidate);
     };
+
+    $scope.$on('mapInitialized', function(event, map) {
+      map.setCenter(39.50, -98.35)
+    });
+
+
 }])
+
+
 
 
 ;
