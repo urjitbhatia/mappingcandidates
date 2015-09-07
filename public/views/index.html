@@ -71,11 +71,13 @@
       <div class="col-md-6">
         <h2> all candidates </h2>
           <div ng-repeat="candidate in allCandidates">
-            <p>{{candidate.name}}</p>
-            <p>{{candidate.party}}</p>
-            <p>{{candidate.events.title}}</p>
-            <p>{{candidate.events.location}}</p>
-
+            <p>Name: {{candidate.name}}</p>
+            <p>Party: {{candidate.party}}</p>
+            <p>Events:</p>
+            <div ng-repeat="event in candidate.events">
+              <p>Event Title: {{event.title}}</p>
+              <p>Event Location: {{event.location}}</p>
+            </div>
           </div>
       </div>
 

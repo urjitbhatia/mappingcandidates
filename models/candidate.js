@@ -8,13 +8,9 @@ var mongoose = require('mongoose'),
 var CandidateSchema = new Schema({
   name: String,
   party: String,
-  events: [Event.schema]
+  events: [Event.schema] // I think there was a typo here. It should be Event.schema not Event.Schema
 });
 
 var Candidate = mongoose.model('Candidate', CandidateSchema);
 module.exports = Candidate;
-
-
-
-
 
