@@ -12,18 +12,6 @@ var createCandidate = module.exports = function (name, party, eventsJsonArray) {
   var candidate = new Candidate();
   candidate.name = name;
   candidate.party = party;
-
-  // var createFetchLatLong = function(candidateEvent, cb) {
-  //   request(GEOCODER_API_URL + candidateEvent.location, function (error, response, body) {
-  //     if (!error && response.statusCode == 200) {
-  //       var jsonBody = JSON.parse(body); // Show the HTML for the Google homepage. 
-  //       candidateEvent.lat = jsonBody.results[0].geometry.location.lat;
-  //       candidateEvent.lng = jsonBody.results[0].geometry.location.lng;
-  //     }
-  //     cb(error, candidateEvent);
-  //   });
-  // };
-
   var candidateEvents = [];
   var fetchLatLongCalls = [];
 
@@ -36,8 +24,8 @@ var createCandidate = module.exports = function (name, party, eventsJsonArray) {
         if (!error && response.statusCode == 200) {
           var jsonBody = JSON.parse(body); // Show the HTML for the Google homepage. 
           if (jsonBody.results.length > 0) {
-            candidateEvent.lat = jsonBody.results[0].geometry.location.lat;
-            candidateEvent.lng = jsonBody.results[0].geometry.location.lng;
+            candidateEvent.lat = Number(jsonBody.results[0].geometry.location.lat);
+            candidateEvent.lng = Number(jsonBody.results[0].geometry.location.lng);
           }
         }
         cb(error, candidateEvent);

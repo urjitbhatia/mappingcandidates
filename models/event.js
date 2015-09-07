@@ -7,8 +7,8 @@ var EventSchema = new Schema({
   title: String,
   time: String, 
   location: String,
-  lat: String,
-  lng: String,
+  lat: Number,
+  lng: Number,
   url: String
 });
 

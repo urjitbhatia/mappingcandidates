@@ -19,24 +19,19 @@ app.service('Candidate', ['$resource', function ($resource) {
 
 
 app.controller('MainCtrl', ['$scope', 'Candidate', function ($scope, Candidate) {
-
-  $scope.test = "hello world";
-
   $scope.allCandidates = Candidate.query();
-  angular.forEach($scope.allCandidates, function(value) {
-    $scope.positions.push({lat:value.lat, lng: value.lng});
-  }, null);
-
-  // $scope.candidate = {};
-
-  //   $scope.createCandidate = function() {
-  //     console.log(candidate);
-  //     Candidate.save($scope.candidate);
-  //     $scope.allCandidates.push($scope.candidate);
-  //   };
-
-    $scope.$on('mapInitialized', function(event, map) {
-      map.setCenter({lat: 39.50, lng: -98.35});
-      map.setZoom(5);
-    });
+  $scope.$on('mapInitialized', function(event, map) {
+    map.setCenter({lat: 39.50, lng: -98.35});
+    map.setZoom(5);
+    var log = [];
+    angular.forEach($scope.allCandidates, function(value) {
+      value.events.forEach(function(candidateEvent) {
+        var marker = new google.maps.Marker({
+          //position: {lat: 39.50, lng: -98.35},
+          position: {lat: Number(candidateEvent.lat), lng: Number(candidateEvent.lng)},
+          map: $scope.map
+        });
+      });
+    }, log);
+  });
 }]);
