@@ -7,7 +7,7 @@ var express = require('express'),
     mongoose = require('mongoose');       // to interact with our db
     Candidate = require('./models/candidate');
     Event = require('./models/event');
-
+    
 // connect to mongodb
 mongoose.connect(
   process.env.MONGOLAB_URI ||
@@ -27,6 +27,35 @@ app.use(bodyParser.json());
 app.get('/candidate', function (req, res) {
   Candidate.find({}, function (err, candidates) {
     res.json(candidates);
+  });
+});
+
+/* This way of doing things creates embedded documents. This means that
+* the candidateEvent and otherCandidateEvent below will not be created in
+* their
+*/ 
+app.get('/candidateCreate', function (req, res) {
+
+  var candidateEvent = new Event();
+  candidateEvent.title = "hello world";
+  candidateEvent.time = "1:00 pm - 2:00 pm CDT";
+  candidateEvent.url = "www.foobar.com";
+  candidateEvent.location = "Iowa";
+  
+  var otherCandidateEvent = new Event();
+  otherCandidateEvent.title = "hello universe";
+  otherCandidateEvent.time = "1:00 pm - 9:00 pm EST";
+  otherCandidateEvent.url = "www.foobarOther.com";
+  otherCandidateEvent.location = "Patiala";
+
+  var candidate = new Candidate();
+  candidate.name = "Taranmol";
+  candidate.party = "JakaraParty";
+  candidate.events.push(candidateEvent);
+  candidate.events.push(otherCandidateEvent);
+
+  candidate.save(function (err) {
+    if (!err) console.log('Success!');
   });
 });
 
