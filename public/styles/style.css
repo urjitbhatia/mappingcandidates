@@ -4,9 +4,26 @@ body {
 }
 
 .navbar {
+  margin-bottom: -30px;
+}
+
+.parallax-window {
+  min-height: 300px;
+}
+
+#landingPage {
+  position: relative;
+  background-image: url(https://images.unsplash.com/photo-1434828927397-62ea053f7a35?q=80&fm=jpg&s=63163124f8cdba56cee68aeb55bcfbdf);
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  overflow: hidden;
+  position-top: -45px;
+
 }
 
 #map {
-  width: 800px;
-  height: 600px;
+  background-color: #BFD4D9;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
