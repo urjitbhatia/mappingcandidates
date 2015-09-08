@@ -28,7 +28,7 @@ var createCandidate = module.exports = function (name, party, eventsJsonArray) {
     fetchLatLongCalls.push(function(cb) {
       request(GEOCODER_API_URL + candidateEvent.location, function (error, response, body) {
         if (!error && response.statusCode == 200) {
-          var jsonBody = JSON.parse(body); // Show the HTML for the Google homepage. 
+          var jsonBody = JSON.parse(body); // show the html for the google homepage. 
           if (jsonBody.results.length > 0) {
             candidateEvent.lat = Number(jsonBody.results[0].geometry.location.lat);
             candidateEvent.lng = Number(jsonBody.results[0].geometry.location.lng);

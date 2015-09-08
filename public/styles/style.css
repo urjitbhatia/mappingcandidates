@@ -4,14 +4,17 @@ body {
 }
 
 .navbar {
-  margin-bottom: -30px;
+  padding-top: 10px;
+  margin-top: -6px;
+  padding-bottom: 15px;
+  margin-bottom: -10px;
 }
 
 .parallax-window {
   min-height: 300px;
 }
 
-#landingPage {
+/*#landingPage {
   position: relative;
   background-image: url(https://images.unsplash.com/photo-1434828927397-62ea053f7a35?q=80&fm=jpg&s=63163124f8cdba56cee68aeb55bcfbdf);
   width: 100%;
@@ -19,11 +22,10 @@ body {
   background-size: cover;
   overflow: hidden;
   position-top: -45px;
-
-}
+}*/
 
 #map {
-  background-color: #BFD4D9;
+  background-color: #032F40;
   padding-top: 50px;
   padding-bottom: 50px;
 }
