@@ -27,7 +27,7 @@ app.controller('MainCtrl', ['$scope', 'Candidate', function ($scope, Candidate) 
     angular.forEach($scope.allCandidates, function (value) {
       value.events.forEach(function(candidateEvent) {
 
-        var contentString = '<h4>Event Information:</h4>' + '<b>' + candidateEvent.title + '</b><hr>' + candidateEvent.time + '<br>' + candidateEvent.url;
+        var contentString = '<div id="content">'+ '<h4>Event Information:</h4>' + '<b>' + candidateEvent.title + '</b><hr>' + candidateEvent.time + '<br>' + candidateEvent.url;
 
         var infowindow = new google.maps.InfoWindow({
           content: contentString

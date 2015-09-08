@@ -30,5 +30,14 @@ body {
   padding-bottom: 50px;
 }
 
+#content {
+  font-family: 'Gudea', sans-serif;
+  background-color: #F7F7F7;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+
 
 
