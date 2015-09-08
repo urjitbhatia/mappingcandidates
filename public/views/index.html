@@ -15,6 +15,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-resource.min.js"></script>
       <!-- jquery -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+    <!-- parallax -->
+    <script type="text/javascript" src="scripts/parallax.min.js"></script>
      <!-- bootstrap js -->
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <!-- ng-map -->
@@ -35,7 +37,7 @@
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
             </button>
-            <a class="navbar-brand" href="#">mapping candidates</a>
+            <a class="navbar-brand" href="#">mapping presidental candidates</a>
           </div>
           <!-- right side -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -47,46 +49,39 @@
       </nav>
     </div>
 
+     <!-- LANDINGPAGE -->
+   <!--  <div id="landingPage" class="parallax-window" sdata-parallax="scroll"><center>
+    </div> -->
 
-    <!-- CREATE CANDIDATE -->
-    <div class="col-md-12"><center>
-  
-  <!--     <h1>creating candidate</h1>
-      <hr> -->
-      
-     <!--  <div class="col-md-6">
-        <h2> new candidate </h2>
+    <!-- MAP -->
+    <div class="col-sm-8" id="map">
+      <center>
 
-          <form name="candidateForm" ng-submit="createCandidate()">
-            
-            <div class="form-group">
-              <input type="candidate" ng-model="candidate.name" class="form-control" placeholder="candidate name" required>
-            </div>
-            
-            <input type="submit" value="submit your candidate!" class="btn btn-default">
-          </form> 
-      
-      </div> -->
+        <map styles="[{stylers:[{hue:'#025950'},{gamma:0.5},{weight:0.5}]},{elementType:'labels',stylers:[{visibility:'on'}]},{featureType:'water',stylers:[{color:'#265573'}]}]"></map>
 
-      <div class="col-md-7">
-        <h2> all candidates </h2>
-          <div ng-repeat="candidate in allCandidates">
-            <p>Name: {{candidate.name}}</p>
-            <p>Party: {{candidate.party}}</p>
-            <p>Events:</p>
-            <!-- <div ng-repeat="event in candidate.events">
-              <p>Event Title: {{event.title}}</p>
-              <p>Event Time: {{event.time}}</p>
-              <p>Event Location: {{event.location}}</p>
-            </div> -->
-          </div>
-      </div>
+      </center>
+   </div>
 
 
-      <div class="col-md-12" id="map">
-        <map />
-      </div>  
+    <!-- SHOW CANDIDATE -->
+    <div class="col-sm-4" id="candidateEventList"><center>
+      <!-- <h2> | september events | </h2> -->
+        <div ng-repeat="candidate in allCandidates">
+          <h3>Presidental Candidate: {{candidate.name}}</h3>
+          <h4>Political Party: {{candidate.party}}</h4>
+          <hr>
+          <h4> September Events:</h4>
+        <div ng-repeat="event in candidate.events">
+            <p>{{event.title}}</p>
+            <p>Date: {{event.date}}</p>
+            <p>Time: {{event.time}}</p>
+            <p>Location: {{event.location}}</p>
+            <hr>
+        </div>
+        </div></center>
+    </div>
 
-    </center></div>
+
+
   </body>
 </html>

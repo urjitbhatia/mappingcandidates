@@ -72,8 +72,6 @@ app.post('/candidate', function (req, res) {
 });
 
 
-
-
 // ------------------------------- //
 
 
