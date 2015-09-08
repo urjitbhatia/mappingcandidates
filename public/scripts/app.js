@@ -38,6 +38,7 @@ app.controller('MainCtrl', ['$scope', 'Candidate', function ($scope, Candidate) 
         var marker = new google.maps.Marker({
           position: {lat: Number(candidateEvent.lat), lng: Number(candidateEvent.lng)},
           map: $scope.map,
+          icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
         });
         
         marker.addListener('click', function() {
