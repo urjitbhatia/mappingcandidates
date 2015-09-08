@@ -22,12 +22,14 @@ app.controller('MainCtrl', ['$scope', 'Candidate', function ($scope, Candidate) 
   $scope.$on('mapInitialized', function (event, map) {
     map.setCenter({lat: 39.50, lng: -98.35});
     map.setZoom(4);
+    map.setOptions({ minZoom: 4, maxZoom: 40 });
+
     
     var log = [];
     angular.forEach($scope.allCandidates, function (value) {
       value.events.forEach(function(candidateEvent) {
 
-        var contentString = '<div id="content">'+ '<h4>Event Information:</h4>' + '<b>' + candidateEvent.title + '</b><hr>' + candidateEvent.time + '<br>' + candidateEvent.url;
+        var contentString = '<div id="content">'+ '<h4>' + candidateEvent.title + '</h4>' + '<hr>' + candidateEvent.date + '<br>' + candidateEvent.time + '<br>' + candidateEvent.url;
 
         var infowindow = new google.maps.InfoWindow({
           content: contentString

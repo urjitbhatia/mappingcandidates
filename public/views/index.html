@@ -64,22 +64,23 @@
 
 
     <!-- SHOW CANDIDATE -->
-    <div class="col-sm-4"><center>
-        <h2> | candidates' september event's | </h2>
-          <div ng-repeat="candidate in allCandidates">
-            <h4>Name: {{candidate.name}}</h4>
-            <p>Party: {{candidate.party}}</p>
-            <p>Events:</p>
-            <div ng-repeat="event in candidate.events">
-              <p>Event Title: {{event.title}}</p>
-              <p>Event Time: {{event.time}}</p>
-              <p>Event Location: {{event.location}}</p>
-            </div>
-          </div></center>
-      </div>
+    <div class="col-sm-4" id="candidateEventList"><center>
+      <!-- <h2> | september events | </h2> -->
+        <div ng-repeat="candidate in allCandidates">
+          <h3>Presidental Candidate: {{candidate.name}}</h3>
+          <h4>Political Party: {{candidate.party}}</h4>
+          <hr>
+          <h4> September Events:</h4>
+        <div ng-repeat="event in candidate.events">
+            <p>{{event.title}}</p>
+            <p>Date: {{event.date}}</p>
+            <p>Time: {{event.time}}</p>
+            <p>Location: {{event.location}}</p>
+            <hr>
+        </div>
+        </div></center>
+    </div>
 
-
-     
 
 
   </body>

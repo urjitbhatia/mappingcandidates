@@ -28,15 +28,23 @@ body {
   background-color: #032F40;
   padding-top: 50px;
   padding-bottom: 50px;
+  overflow: scroll;
 }
 
 #content {
   font-family: 'Gudea', sans-serif;
-  background-color: #F7F7F7;
+  background-color: rgba(3, 47, 64, 0.5);
   padding-top: 10px;
   padding-right: 10px;
   padding-bottom: 10px;
   padding-left: 10px;
+  overflow:auto; 
+  height: 100%
+}
+
+#candidateEventList {
+  overflow:auto; 
+  height: 100%
 }
 
 
