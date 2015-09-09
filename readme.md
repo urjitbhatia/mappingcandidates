@@ -1,7 +1,7 @@
 ##README
 
 ## | Behind App |
-- Mapping presidential candidates is a data visualization app that allows users to follow a candidate in detail. Features include a mapping and following a candidate’s schedule to understanding what topics and geographic regions the campaign is emphasizing. This app uses event based mapping to help create a more comprehensive understanding of the upcoming US presidential campaign season.
+Mapping presidential candidates is a data visualization app that allows users to follow a candidate in detail. Features include a mapping and following a candidate’s schedule to understanding what topics and geographic regions the campaign is emphasizing. This app uses event based mapping to help create a more comprehensive understanding of the upcoming US presidential campaign season.
 
 ## | Technologies Used |
 - Mean Stack
@@ -29,4 +29,4 @@
 - Sentiment Mapping
 
 ## | Website Link |
-- mappingcandidates.herokuapp.com
+mappingcandidates.herokuapp.com
