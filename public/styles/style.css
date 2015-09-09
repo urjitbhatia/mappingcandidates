@@ -15,9 +15,10 @@ body {
 }
 
 #map {
-  background-color: #032F40;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  background-color: #F7F7F7;
+  margin-top: 4px;
+/*  padding-top: 50px;*/
+/*  padding-bottom: 50px;*/
   overflow: scroll;
 }
 
@@ -37,6 +38,28 @@ body {
   overflow:auto; 
   height: 100%
 }
+
+#abouttext {
+  padding-top: 50px;
+}
+
+ul
+{
+  list-style-type: none;
+}
+
+#about > center > div > a > img {
+  width:90px;
+  height: auto;
+  padding-left: 35px;
+}
+
+#aboutimg > img {
+  width: 500px;
+  height: auto;
+  padding-top: 20px;
+}
+
 
 
 

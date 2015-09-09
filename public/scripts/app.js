@@ -30,8 +30,6 @@ app.service('Candidate', ['$resource', function ($resource) {
   });
 }]);
 
-
-
 app.controller('MainCtrl', ['$scope', 'Candidate', function ($scope, Candidate) {
   $scope.allCandidates = Candidate.query();
   $scope.$on('mapInitialized', function (event, map) {
