@@ -8,6 +8,29 @@ var Candidate = require("../models/candidate"),
 // creating a var for the api url that can be accessed
 var GEOCODER_API_URL = "http://maps.googleapis.com/maps/api/geocode/json?sensor=false&address=";
 
+var fetchLatLong = function(candidateEvent, cb) {
+  request(GEOCODER_API_URL + candidateEvent.location, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      var jsonBody = JSON.parse(body); // show the html for the google homepage. 
+      if (jsonBody.results.length > 0) {
+        // console.log("Fetched lat long... ok");
+        candidateEvent.lat = Number(jsonBody.results[0].geometry.location.lat);
+        candidateEvent.lng = Number(jsonBody.results[0].geometry.location.lng);
+      } else {
+        console.log("GEOCODER_API jsonBody is empty. CandidateEvent:", candidateEvent);
+        if (jsonBody.error_message) {
+          console.log("Error:", jsonBody.error_message);
+        }
+      }
+    } else {
+      console.log("GEOCODER_API response:", response.statusCode, "CandidateEvent", candidateEvent,
+        "error", error);
+    }
+    // we are setting the lat/long on the candidate... nothing to return
+    cb(error, null);
+  });
+};
+
 // creating a candidate
 var createCandidate = module.exports = function (name, party, eventsJsonArray) {
 
@@ -24,26 +47,13 @@ var createCandidate = module.exports = function (name, party, eventsJsonArray) {
     // going through all the events & storing them in the var candidateEvent
     var candidateEvent = new Event(rawEvent);
     candidateEvents.push(candidateEvent);
-    // fetchLatLongCalls.push(createFetchLatLong(candidateEvent));
-    fetchLatLongCalls.push(function(cb) {
-      request(GEOCODER_API_URL + candidateEvent.location, function (error, response, body) {
-        if (!error && response.statusCode == 200) {
-          var jsonBody = JSON.parse(body); // show the html for the google homepage. 
-          if (jsonBody.results.length > 0) {
-            candidateEvent.lat = Number(jsonBody.results[0].geometry.location.lat);
-            candidateEvent.lng = Number(jsonBody.results[0].geometry.location.lng);
-          }
-        }
-        cb(error, candidateEvent);
-      });
-    });
   });
 
-  async.parallel(fetchLatLongCalls, function(err, results) {
+  async.map(candidateEvents, fetchLatLong, function(err, results) {
     if (err) {
       console.log("error in fetchLatLong");
     } else {
-      console.log("done!");
+      console.log("done fetching lat/long!");
       candidate.events.push.apply(candidate.events, candidateEvents);
       console.log("added events:", candidate.events.length);
       candidate.isNew = true;
@@ -56,5 +66,7 @@ var createCandidate = module.exports = function (name, party, eventsJsonArray) {
         }
       });
     }
+
+    process.exit();
   });
 };
