@@ -1,12 +1,26 @@
 var app = angular.module('mappingcandidatesApp', ['ngRoute', 'ngResource', 'ngMap'])
 
-// app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+  $routeProvider
+    .when ('/', {
+      templateUrl:'views/templates/home.html',
+      controller: 'MainCtrl'
+    })
 
-//    $locationProvider.html5Mode({
-//     enabled: true,
-//     requireBase: false
-//    });
-// }]);
+   .when ('/about', {
+      templateUrl:'views/templates/about.html',
+      controller: 'AboutCtrl'
+    })
+
+   .otherwise({
+    redirectTo: '/'
+   });
+
+   $locationProvider.html5Mode({
+    enabled: true,
+    requireBase: false
+   });
+}]);
 
 app.service('Candidate', ['$resource', function ($resource) {
   return $resource('/candidate/:id', {id: '@_id'}, {
@@ -16,11 +30,7 @@ app.service('Candidate', ['$resource', function ($resource) {
   });
 }]);
 
-  $('.showButton').click(function (e) {
-    console.log('hello')
-    $('.events').show()
 
-  })
 
 app.controller('MainCtrl', ['$scope', 'Candidate', function ($scope, Candidate) {
   $scope.allCandidates = Candidate.query();
@@ -54,4 +64,7 @@ app.controller('MainCtrl', ['$scope', 'Candidate', function ($scope, Candidate) 
     }, log);
   
   });
+
+  $scope.showEvents = true;
+
 }]);

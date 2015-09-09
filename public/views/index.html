@@ -38,49 +38,19 @@
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
             </button>
-            <a class="navbar-brand" href="#">mapping presidental candidates</a>
+            <a class="navbar-brand" href="/">mapping presidental candidates</a>
           </div>
           <!-- right side -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="#">about</a></li>
+              <li><a href="/about">about</a></li>
             </ul>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
       </nav>
     </div>
 
-    <!-- MAP -->
-    <div class="col-sm-8" id="map">
-      <center>
-        <map styles="[{stylers:[{hue:'#025950'},{gamma:0.5},{weight:0.5}]},{elementType:'labels',stylers:[{visibility:'on'}]},{featureType:'water',stylers:[{color:'#265573'}]}]"></map>
-      </center>
-   </div>
-
-
-    <!-- SHOW CANDIDATE -->
-    <div class="col-sm-4" id="candidateEventList"><center>
-      <!-- <h2> | september events | </h2> -->
-      <div ng-repeat="candidate in allCandidates">
-          <h3>Presidental Candidate: {{candidate.name}}</h3>
-          <h4>Political Party: {{candidate.party}}</h4>
-          <hr>
-          <h4> September Events: </h4>
-
-          <a class="btn btn-primary showButton">See Events</a>
-          <input type="checkbox" ng-model="checked" aria-label="Toggle ngHide">
-
-        <div ng-repeat="event in candidate.events" ng-show="checked">
-          <p>{{event.title}}</p>
-          <p>Date: {{event.date}}</p>
-          <p>Time: {{event.time}}</p>
-          <p>Location: {{event.location}}</p>
-          <hr>
-        </div>
-
-      </div></center>
-    </div>
-
+    <div ng-view></div>
 
 
   </body>
