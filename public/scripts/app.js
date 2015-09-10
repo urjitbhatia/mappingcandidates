@@ -1,12 +1,26 @@
 var app = angular.module('mappingcandidatesApp', ['ngRoute', 'ngResource', 'ngMap'])
 
-// app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+  $routeProvider
+    .when ('/', {
+      templateUrl:'views/templates/home.html',
+      controller: 'MainCtrl'
+    })
 
-//    $locationProvider.html5Mode({
-//     enabled: true,
-//     requireBase: false
-//    });
-// }]);
+   .when ('/about', {
+      templateUrl:'views/templates/about.html',
+      controller: 'AboutCtrl'
+    })
+
+   .otherwise({
+    redirectTo: '/'
+   });
+
+   $locationProvider.html5Mode({
+    enabled: true,
+    requireBase: false
+   });
+}]);
 
 app.service('Candidate', ['$resource', function ($resource) {
   return $resource('/candidate/:id', {id: '@_id'}, {
@@ -16,9 +30,16 @@ app.service('Candidate', ['$resource', function ($resource) {
   });
 }]);
 
-
 app.controller('MainCtrl', ['$scope', 'Candidate', function ($scope, Candidate) {
+    
+  // $scope.events = true;
+  // $scope.showEvents = function() {
+  //   console.log(showEvents);
+  // $scope.events = !$scope.events;
+  // }
+    
   $scope.allCandidates = Candidate.query();
+
   $scope.$on('mapInitialized', function (event, map) {
     map.setCenter({lat: 39.50, lng: -98.35});
     map.setZoom(4);
@@ -38,7 +59,7 @@ app.controller('MainCtrl', ['$scope', 'Candidate', function ($scope, Candidate) 
         var marker = new google.maps.Marker({
           position: {lat: Number(candidateEvent.lat), lng: Number(candidateEvent.lng)},
           map: $scope.map,
-          icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
+          // icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
         });
         
         marker.addListener('click', function() {
@@ -49,4 +70,6 @@ app.controller('MainCtrl', ['$scope', 'Candidate', function ($scope, Candidate) 
     }, log);
   
   });
+
+
 }]);

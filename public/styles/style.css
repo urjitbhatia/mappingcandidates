@@ -1,5 +1,5 @@
 body {
-  font-family: 'Gudea', sans-serif;
+  font-family: 'Oswald', sans-serif;
   background-color: #F7F7F7;
 }
 
@@ -10,29 +10,16 @@ body {
   margin-bottom: -10px;
 }
 
-.parallax-window {
-  min-height: 300px;
-}
-
-/*#landingPage {
-  position: relative;
-  background-image: url(https://images.unsplash.com/photo-1434828927397-62ea053f7a35?q=80&fm=jpg&s=63163124f8cdba56cee68aeb55bcfbdf);
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  overflow: hidden;
-  position-top: -45px;
-}*/
-
 #map {
-  background-color: #032F40;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  background-color: #F7F7F7;
+  margin-top: 4px;
+/*  padding-top: 50px;*/
+/*  padding-bottom: 50px;*/
   overflow: scroll;
 }
 
 #content {
-  font-family: 'Gudea', sans-serif;
+  font-family: 'Oswald', sans-serif;
   background-color: #032F40;
   padding-top: 10px;
   padding-right: 10px;
@@ -47,6 +34,28 @@ body {
   overflow:auto; 
   height: 100%
 }
+
+#abouttext {
+  padding-top: 50px;
+}
+
+ul
+{
+  list-style-type: none;
+}
+
+#about > center > div > a > img {
+  width:90px;
+  height: auto;
+  padding-left: 35px;
+}
+
+#aboutimg > img {
+  width: 500px;
+  height: auto;
+  padding-top: 20px;
+}
+
 
 
 

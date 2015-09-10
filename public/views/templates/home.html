@@ -1,0 +1,30 @@
+<!-- MAP -->
+    <div class="col-sm-8" id="map">
+      <center>
+        <map styles="[{stylers:[{hue:'#025950'},{gamma:0.5},{weight:0.5}]},{elementType:'labels',stylers:[{visibility:'on'}]},{featureType:'water',stylers:[{color:'#2C3E50'}]}]"></map>
+      </center>
+   </div>
+
+
+    <!-- SHOW CANDIDATE -->
+    <div class="col-sm-4" id="candidateEventList"><center>
+      <h2> | September Events | </h2>
+      <br>
+      <div ng-repeat="candidate in allCandidates">
+          <h4>{{candidate.name}} ({{candidate.party}})</h4> 
+          
+          <button class="btn btn-danger" ng-click="showEvents() ng-model="events">See Events</button>
+
+          <input type="checkbox" ng-model="checked" aria-label="Toggle ngHide">
+          <hr>
+
+        <div ng-repeat="event in candidate.events" ng-show="checked" ng-show="events">
+          <p>Event: {{event.title}}</p>
+          <p>Date: {{event.date}}</p>
+          <p>Time: {{event.time}}</p>
+          <p>Location: {{event.location}}</p>
+          <hr>
+        </div>
+
+      </div></center>
+    </div>
