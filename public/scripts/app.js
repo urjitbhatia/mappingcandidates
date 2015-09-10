@@ -31,7 +31,15 @@ app.service('Candidate', ['$resource', function ($resource) {
 }]);
 
 app.controller('MainCtrl', ['$scope', 'Candidate', function ($scope, Candidate) {
+    
+  // $scope.events = true;
+  // $scope.showEvents = function() {
+  //   console.log(showEvents);
+  // $scope.events = !$scope.events;
+  // }
+    
   $scope.allCandidates = Candidate.query();
+
   $scope.$on('mapInitialized', function (event, map) {
     map.setCenter({lat: 39.50, lng: -98.35});
     map.setZoom(4);
@@ -63,6 +71,5 @@ app.controller('MainCtrl', ['$scope', 'Candidate', function ($scope, Candidate) 
   
   });
 
-  $scope.showEvents = true;
 
 }]);

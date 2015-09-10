@@ -1,5 +1,5 @@
 body {
-  font-family: 'Gudea', sans-serif;
+  font-family: 'Oswald', sans-serif;
   background-color: #F7F7F7;
 }
 
@@ -8,10 +8,6 @@ body {
   margin-top: -6px;
   padding-bottom: 15px;
   margin-bottom: -10px;
-}
-
-.parallax-window {
-  min-height: 300px;
 }
 
 #map {
@@ -23,7 +19,7 @@ body {
 }
 
 #content {
-  font-family: 'Gudea', sans-serif;
+  font-family: 'Oswald', sans-serif;
   background-color: #032F40;
   padding-top: 10px;
   padding-right: 10px;
