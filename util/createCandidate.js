@@ -64,9 +64,8 @@ var createCandidate = module.exports = function (name, party, eventsJsonArray) {
         } else {
           console.log("success");
         }
+        process.exit();
       });
     }
-
-    process.exit();
   });
 };
